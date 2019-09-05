@@ -4,6 +4,8 @@ export const RECEIVE_CURRENT_USER = "RECEIVE_CURRENT_USER";
 
 export const RECEIVE_ERRORS = "RECEIVE_ERRORS";
 
+export const LOGOUT_CURRENT_USER = "LOGOUT_CURRENT_USER";
+
 export const receiveCurrentUser = (currentUser) => ({
   type: RECEIVE_CURRENT_USER,
   user
@@ -19,10 +21,10 @@ export const receiveErrors = (errors) => ({
 });
 
 export const signup = (user) => dispatch => SessionUtils.signup(user)
-  .then(user => dispatch(receiveCurrentUser(user)));
+  .then(user => dispatch(receiveCurrentUser(user), dispatch(receiveErrors)));
   
 export const login = (user) => dispatch => SessionUtils.login(user)
-  .then(user => dispatch(receiveCurrentUser(user)));
+  .then(user => dispatch(receiveCurrentUser(user), dispatch(receiveErrors)));
 
 export const logout = () => dispatch => SessionUtils.logout()
-  .then(() => dispatch(logoutCurrentUser()));
+  .then(() => dispatch(logoutCurrentUser()), dispatch(receiveErrors));
