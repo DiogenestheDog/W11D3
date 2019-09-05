@@ -1,6 +1,6 @@
 import { RECEIVE_CURRENT_USER } from '../actions/session_actions';
 
-let UsersReducer = (state = {}, action) => {
+let usersReducer = (state = {}, action) => {
   Object.freeze(state);
   switch(action.type) {
     case RECEIVE_CURRENT_USER:
@@ -10,4 +10,4 @@ let UsersReducer = (state = {}, action) => {
   }
 };
 
-export default UsersReducer;
+export default usersReducer;

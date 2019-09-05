@@ -1,6 +1,6 @@
 import { RECEIVE_CURRENT_USER, LOGOUT_CURRENT_USER } from '../actions/session_actions';
 
-let SessionReducer = (state = {id: null}, action) => {
+let sessionReducer = (state = {id: null}, action) => {
   Object.freeze(state);
   switch(action.type) {
 
@@ -16,4 +16,4 @@ let SessionReducer = (state = {id: null}, action) => {
 
 
 
-export default SessionReducer;
+export default sessionReducer;
